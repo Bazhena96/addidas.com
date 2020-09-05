@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
 
-from TestSuite.Utils import find_and_click
+from TestSuite.Utils import find_and_click, input_text
 
 
 class AddToCart(unittest.TestCase):
@@ -15,10 +15,7 @@ class AddToCart(unittest.TestCase):
 
     def test_add_product(self):
         # add text into search box
-        input_field = self.driver.find_element_by_css_selector('.searchinput___zXLAR')
-        input_field.send_keys("short")
-        input_field.send_keys(Keys.ENTER)
-        titles = self.driver.find_elements_by_class_name("gl-product-card__details-main")
+        input_text('.searchinput___zXLAR', self.driver, "short")
         # open product link
         product_link = self.driver.find_element_by_css_selector("div.grid-item___3rAkS:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1)")
         product_link.send_keys(Keys.ENTER)
@@ -47,10 +44,8 @@ class AddToCart(unittest.TestCase):
     def test_check_order(self):
         # click "check the order"
         find_and_click(".inner___1T3DW > a:nth-child(6)", self.driver)
-        input_number = self.driver.find_element_by_css_selector(".field__text--is-invalid___2523M")
-        input_number.send_keys("200400H")
-        input_email = self.driver.find_element_by_css_selector("div.field___22seD:nth-child(3) > input:nth-child(1)")
-        input_email.send_keys("bazhenkak@gmail.com")
+        input_text(".field__text--is-invalid___2523M", self.driver, "4000043HH")
+        input_text("div.field___22seD:nth-child(3) > input:nth-child(1)", self.driver, "bazhenkak@gmail.com")
         # find order
         find_and_click("button.gl-cta:nth-child(4)", self.driver)
 
