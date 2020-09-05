@@ -4,7 +4,7 @@ import unittest
 
 
 class AddToCart(unittest.TestCase):
-    def SetUp(self):
+    def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(10)  # seconds
         self.driver.maximize_window()
@@ -39,11 +39,10 @@ class AddToCart(unittest.TestCase):
         check_cart.submit()
         check_cart.click()
 
-    def TearDown(self):
+    def tearDown(self):
         self.driver = webdriver.Firefox()
         self.driver.quit()
 
 
 if __name__ == '__main__':
     unittest.main()
-
