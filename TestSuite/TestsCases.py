@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
 
-from TestSuite.Utils import find_and_click, input_text
+from TestSuite.Utils import find_and_click, input_text, open_link
 
 
 class AddToCart(unittest.TestCase):
@@ -15,10 +15,9 @@ class AddToCart(unittest.TestCase):
 
     def test_add_product(self):
         # add text into search box
-        input_text('.searchinput___zXLAR', self.driver, "short")
+        input_text(".searchinput___zXLAR", self.driver, "short")
         # open product link
-        product_link = self.driver.find_element_by_css_selector("div.grid-item___3rAkS:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1)")
-        product_link.send_keys(Keys.ENTER)
+        open_link("div.grid-item___3rAkS:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1)", self.driver, "ENTER")
         # close alert
         find_and_click(".gl-modal__close > svg:nth-child(1)", self.driver)
         # choose size
