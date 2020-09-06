@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
 
-from TestSuite.Utils import find_and_click, input_and_click, input_text
+from TestSuite.Utils import find_and_click, input_text, input_and_click_enter
 
 
 class AddToCart(unittest.TestCase):
@@ -15,7 +15,7 @@ class AddToCart(unittest.TestCase):
 
     def test_add_product(self):
         # add text into search box
-        input_and_click(self.driver, ".searchinput___zXLAR", "short")
+        input_and_click_enter(self.driver, ".searchinput___zXLAR", "short")
         # open product link
         open_link = self.driver.find_element_by_css_selector("div.grid-item___3rAkS:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1)")
         open_link.send_keys(Keys.ENTER)
