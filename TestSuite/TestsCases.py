@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
 
-from TestSuite.Utils import find_and_click, input_text, input_and_click
+from TestSuite.Utils import find_and_click, input_and_click, input_text
 
 
 class AddToCart(unittest.TestCase):
@@ -43,10 +43,10 @@ class AddToCart(unittest.TestCase):
 
     def test_check_order(self):
         # click "check the order"
-        find_and_click("div.field___22seD:nth-child(2)", self.driver)
-        input_text(".field__text--is-invalid___2523M", self.driver, "AD012345678")
-        find_and_click("div.field___22seD:nth-child(3)", self.driver)
-        input_text("div.field___22seD:nth-child(3)", self.driver, "bazhenkak@gmail.com")
+        find_and_click(".inner___1T3DW > a:nth-child(6)", self.driver)
+        # input data
+        input_text("div.field___22seD:nth-child(2) > input:nth-child(1)", self.driver, "AD012345678")
+        input_text("div.field___22seD:nth-child(3) > input:nth-child(1)", self.driver, "bazhenkak@gmail.com")
         # find order
         find_and_click("button.gl-cta:nth-child(4)", self.driver)
 
