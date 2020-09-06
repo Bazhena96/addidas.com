@@ -22,7 +22,7 @@ class LogIn(unittest.TestCase):
     def test_forgot_password(self):
         find_and_click(self.driver, ".inner___1T3DW > a:nth-child(12)")
         find_and_click(self.driver, "div.col-l-10:nth-child(1) > form:nth-child(2) > a:nth-child(1)")
-        input_text(self.driver, ".field__input___3eT4b")
+        input_text(self.driver, ".field__input___3eT4b", "bazhenkak@gmail.com")
         find_and_click(self.driver, "div.gl-vspace-bpall-medium:nth-child(1) > button:nth-child(1)")
 
     def test_join_club(self):
