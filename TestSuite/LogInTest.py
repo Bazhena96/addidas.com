@@ -32,6 +32,10 @@ class LogIn(unittest.TestCase):
         find_and_click(self.driver, ".gl-form-item--inline")
         find_and_click(self.driver, "button.gl-cta:nth-child(8)")
 
+    def tearDown(self):
+        self.driver.quit()
+
+
 
 
 
