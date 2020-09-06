@@ -15,7 +15,3 @@ def input_and_click(driver, css_selector, text):
     element = driver.find_element_by_css_selector(css_selector)
     element.send_keys(text)
     element.send_keys(Keys.ENTER)
-
-
-
-
