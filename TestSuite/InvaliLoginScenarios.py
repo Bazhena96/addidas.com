@@ -1,10 +1,25 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import unittest
 
+from TestSuite.Utils import find_and_click, input_text, input_and_click_enter
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)
+class InvalidLogin(unittest.TestCase):
+    def setUp(self):
+        self.driver = webdriver.Firefox()
+        self.driver.maximize_window()
+        self.driver.implicitly_wait(10)  # seconds
+        # navigate to the home page
+        self.driver.get("https://www.adidas.com")
+
+    def test_login_scenario(self):
 
 
-if __name__ == '__main__':
-    unittest.main()
+
+
+    def tearDown(self):
+            self.driver.quit()
+
+
+
+
