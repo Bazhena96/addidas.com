@@ -13,7 +13,7 @@ incorrectLoginCorrectPassword = {"login": "gogogogo@gmail.com", "password": 7789
 incorrectLoginIncorrectPassword = {'login': "goofojir@gmail.com", "password": 333333,
                                    "error_message": "Incorrect email / password – please check and retry"}
 
-scenarios = [correctLoginIncorrectPassword, incorrectLoginCorrectPassword, incorrectLoginIncorrectPassword]
+scenarios = (correctLoginIncorrectPassword, incorrectLoginCorrectPassword, incorrectLoginIncorrectPassword)
 
 
 class InvalidLogin(unittest.TestCase):
@@ -32,8 +32,7 @@ class InvalidLogin(unittest.TestCase):
             password = self.driver.find_element_by_css_selector('#login-password').clear()
             input_text(self.driver, "#login-password", scenario['password'])
             find_and_click(self.driver, "div.gl-vspace-bpall-small:nth-child(6) > button:nth-child(1)")
-            # self.assertIn(scenario['error_message'], self.driver.page_source)
-            assert scenario['error_message'] in self.driver.page_source
+            self.assertIn(scenario['error_message'], self.driver.page_source)
 
     def tearDown(self):
         self.driver.quit()
