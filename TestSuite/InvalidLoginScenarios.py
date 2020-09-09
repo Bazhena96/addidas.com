@@ -27,15 +27,13 @@ class InvalidLogin(unittest.TestCase):
     def test_login_scenario(self):
         for scenario in scenarios:
             find_and_click(self.driver, ".inner___1T3DW > a:nth-child(12)")
+            email = self.driver.find_element_by_css_selector("#login-email").clear()
             input_text(self.driver, "#login-email", scenario['login'])
+            password = self.driver.find_element_by_css_selector('#login-password').clear()
             input_text(self.driver, "#login-password", scenario['password'])
             find_and_click(self.driver, "div.gl-vspace-bpall-small:nth-child(6) > button:nth-child(1)")
-            try:
-                text = self.driver.find_element_by_id(scenario['error_message'])
-                return True
-            except NoSuchElementException:
-                print('Zero element')
-                return False
+            # self.assertIn(scenario['error_message'], self.driver.page_source)
+            assert scenario['error_message'] in self.driver.page_source
 
     def tearDown(self):
         self.driver.quit()
