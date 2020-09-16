@@ -5,7 +5,7 @@ import unittest
 from TestSuite.Utils import find_and_click, input_and_click, input_text
 
 
-class LogIn(unittest.TestCase):
+class LogInTest(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.maximize_window()
