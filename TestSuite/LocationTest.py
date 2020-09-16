@@ -5,7 +5,7 @@ import unittest
 from TestSuite.Utils import find_and_click
 
 
-class ChangeLocation(unittest.TestCase):
+class LocationTest(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Firefox()
