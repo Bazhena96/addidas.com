@@ -16,7 +16,7 @@ incorrectLoginIncorrectPassword = {'login': "goofojir@gmail.com", "password": 33
 scenarios = (correctLoginIncorrectPassword, incorrectLoginCorrectPassword, incorrectLoginIncorrectPassword)
 
 
-class InvalidLogin(unittest.TestCase):
+class InvalidLoginScenarios(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.maximize_window()
