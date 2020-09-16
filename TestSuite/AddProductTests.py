@@ -5,7 +5,7 @@ import unittest
 from TestSuite.Utils import find_and_click, input_text, input_and_click_enter
 
 
-class AddToCart(unittest.TestCase):
+class AddProductTests(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.maximize_window()
